@@ -15,6 +15,8 @@ public class Main {
     static Map<String, Integer> conversionCounts = new HashMap<>();
     static Map<String, Integer> conversionToCounts = new HashMap<>();
     static Set<String> supportedCurrencies = new HashSet<>();
+    static String url_base = "https://v6.exchangerate-api.com/v6/";
+    static String apiKey = "insert ur api key here :)";
 
     public static void main(String[] args) throws IOException {
 
@@ -50,8 +52,7 @@ public class Main {
 
     public static void fetchSupportedCurrencies() throws IOException {
         // Setting URL
-        String url_base = "https://v6.exchangerate-api.com/v6/";
-        String apiKey = "insert ur api key here :)";
+
         String url_str = url_base + apiKey + "/codes";
         // Making Request
         URL url = new URL(url_str);
@@ -158,9 +159,6 @@ public class Main {
 
     public static JsonObject conversor(String convRate, String targetRate, Double amount) throws IOException {
 
-        // Setting URL
-        String url_base = "https://v6.exchangerate-api.com/v6/";
-        String apiKey = "edb0fa5dec51e9953269686e";
         String url_str = String.format("%s%s/pair/%s/%s/%.2f/", url_base, apiKey, convRate, targetRate, amount);
 
         // Making Request
